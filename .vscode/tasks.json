@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "react start server without browser",
+			"type": "npm",
+			"script": "react:debug",
+			"problemMatcher": [],
+			"detail": "cross-env BROWSER=none npm start",
+			"isBackground": true
+		},
+		{
+			"label": "kill",
+			"type": "npm",
+			"script": "killall",
+			"problemMatcher": [],
+			"detail": "cross-env BROWSER=none npm start",
+			"isBackground": true
+		}
+	]
+}
