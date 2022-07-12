@@ -14,12 +14,24 @@
 		"@testing-library/jest-dom": "^5.16.4",
 		"@testing-library/react": "^13.3.0",
 		"@testing-library/user-event": "^13.5.0",
+		"@types/jest": "^28.1.4",
+		"@types/node": "^18.0.3",
+		"@types/react": "^18.0.15",
+		"@types/react-dom": "^18.0.6",
+		"@typescript-eslint/eslint-plugin": "^5.30.6",
+		"@typescript-eslint/parser": "^5.30.6",
 		"concurrently": "^7.2.2",
 		"cross-env": "^7.0.3",
 		"electron": "^19.0.8",
+		"eslint": "^8.19.0",
+		"eslint-config-google": "^0.14.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-react": "^7.30.1",
+		"prettier": "^2.7.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-scripts": "5.0.1",
+		"typescript": "^4.7.4",
 		"wait-on": "^6.0.1",
 		"web-vitals": "^2.1.4"
 	},
@@ -31,6 +43,7 @@
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"killall": "taskkill /im node.exe /F",
+		"lint": "eslint 'src/**/*.ts'",
 		"react:debug": "cross-env BROWSER=none npm start",
 		"electron:serve": "concurrently -k \"cross-env BROWSER=none npm start \" \"npm run electron:start\"",
 		"electron:build": "",
@@ -53,5 +66,13 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
+	},
+	"dependencies": {
+		"@emotion/react": "^11.9.3",
+		"@emotion/styled": "^11.9.3",
+		"@mui/material": "^5.8.7",
+		"@reduxjs/toolkit": "^1.8.3",
+		"install": "^0.13.0",
+		"npm": "^8.13.2"
 	}
 }

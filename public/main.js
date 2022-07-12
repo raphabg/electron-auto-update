@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, session } = require('electron');
 
 require('@electron/remote/main').initialize();
 
@@ -16,12 +16,21 @@ const createWindow = () => {
 };
 
 app.whenReady().then(() => {
-	createWindow();
+	session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+		callback({
+			responseHeaders: {
+				...details.responseHeaders,
+				'Content-Security-Policy': ["script-src 'self'"],
+			},
+		});
+	});
 
 	//MAC OS
-	app.on('activate', () => {
-		if (BrowserWindow.getAllWindows().length === 0) createWindow();
-	});
+	if (process.platform === 'darwin')
+		app.on('activate', () => {
+			if (BrowserWindow.getAllWindows().length === 0) createWindow();
+		});
+	else createWindow();
 });
 
 app.on('window-all-closed', () => {
